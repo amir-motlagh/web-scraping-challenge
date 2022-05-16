@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Visit Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Planet Mars: The Next Frontier</h1>
+            <p>This is a webscraping application. Explore Mars with a press of the button</p>
+            <p class="h6">Written by Navid Motlagh for the UCSD Data Science Program</p>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Explore Mars Now!</a></p>
+        </div>
+    </div>
+
+    <div class='container'>
+        <h2>Latest Mars news</h2>
+        <h4><a href="{{ mars.article_url }}" target="_blank">{{ mars.news_title }}</a></h4>
+        <p ><em>{{ mars.news_p }}</em></p>
+    </div>
+
+    <div class='container'>
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Featured Mars Image</h2>
+                <p>Taken from <a href="https://spaceimages-mars.com" target="_blank"> Mars space image </a></p>
+                <img src="{{ mars.featured_image_url }}" width="100%" alt="featured mars image">
+            </div>
+            <div class="col-lg-4">
+                <h2>Mars Facts</h2>
+                <p>Taken from <a href="https://space-facts.com/mars/" target="_blank"> space-facts.com</a></p>
+                {{ mars.html_mars_tbl | safe }}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row text-center">
+            <h2>Mars Hemispheres</h2>
+            <p>taken from <a href="https://marshemispheres.com/" target="_blank"> marshemispheres.com</a></p>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ mars.hemisphere_image_list.0.img_url }}" width="100%" class="card-img-top" alt="{{ mars.hemisphere_image_list.0.title }}">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ mars.hemisphere_image_list.0.title }}</h5>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ mars.hemisphere_image_list.1.img_url }}" width="100%" class="card-img-top" alt="{{ mars.hemisphere_image_list.1.title }}">
+                    <div class="card-body">
+                      <h3 class="card-title">{{ mars.hemisphere_image_list.1.title }}</h5>
+                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ mars.hemisphere_image_list.2.img_url }}" width="100%" class="card-img-top" alt="{{ mars.hemisphere_image_list.2.title }}">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ mars.hemisphere_image_list.2.title }}</h5>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ mars.hemisphere_image_list.3.img_url }}" width="100%" class="card-img-top" alt="{{ mars.hemisphere_image_list.3.title }}">
+                    <div class="card-body">
+                      <h3 class="card-title">{{ mars.hemisphere_image_list.3.title }}</h5>
+                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+        <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
