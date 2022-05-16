@@ -48,40 +48,34 @@ def scrape():
 
     print('Scrape of NASA Mars News - COMPLETE')
 
-
+### JPL Mars Space Images - Featured Image ###
     # Open a splinter browser to scrape the desired images
     # Define the URL path
     url_2 = 'https://spaceimages-mars.com'
-
     # Using the already established splinter engine, open the url in broswer
     # Visit the defined URL on your splinter broswers
     browser.visit(url_2)
+    # delay action until browser loads
+    time.sleep(5)
+    # click on the sprinter browser link 'FULL IMAGE' to see the image we want to store
+    #browser.click_link_by_partial_text('FULL IMAGE')
 
     # delay action until browser loads
-    time.sleep(10)
-
-    # click on the sprinter browser link 'FULL IMAGE' to see the image we want to store
-    browser.links.find_by_partial_text('FULL IMAGE')
-
-
+    time.sleep(5)
     # Find and click the full image button
     full_image_elem = browser.find_by_tag('button')[1]
     full_image_elem.click()
 
+    time.sleep(5)
     # Soupify the browser html
-    html = browser.html
-    img_soup = bs(html, 'html.parser')
-
+    img_soup = bs(browser.html, 'html.parser')
     # Locate the 'div' and class attribute where the image is found and 
     img_url_rel = img_soup.find('img', class_='fancybox-image').get('src')
-    img_url_rel
-
-    # Use the base url to create an absolute url
+    # Assign the string compound image url to a variable
     img_url = f'https://spaceimages-mars.com/{img_url_rel}'
-    img_url
+    print(img_url)
 
-
-    print('Scrape of JPL Mars Featured Image - COMPLETE')
+    print('Scrape of NASA Mars Featured Image - COMPLETE')
 
 ### Mars Facts ###
     # We will use Pandas to scrape the table information from the space-fact.com website on Mars
@@ -132,7 +126,7 @@ def scrape():
         # Open the splinter browser using the url_4 link we just created
         browser.visit(url_4)
         # Let the browser load for 1 seconds before scraping data
-        time.sleep(1)
+        time.sleep(2)
         # Soupify the page
         soup = bs(browser.html, 'html.parser')
         
